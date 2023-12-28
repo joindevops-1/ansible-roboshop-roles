@@ -9,8 +9,8 @@ Environment=CART_PORT=8080
 Environment=USER_HOST={{USER_HOST}}
 Environment=USER_PORT=8080
 Environment=AMQP_HOST={{RABBITMQ_HOST}}
-Environment=AMQP_USER={{ lookup('file', '../../rabbitmq/vars/main.yaml') | from_yaml | default({})['rabbitmq_user'] }}
-Environment=AMQP_PASS={{ lookup('file', '../../rabbitmq/vars/main.yaml') | from_yaml | default({})['rabbitmq_password'] }}
+Environment=AMQP_USER={{rabbitmq_user}}
+Environment=AMQP_PASS={{rabbitmq_password}}
 
 ExecStart=/usr/local/bin/uwsgi --ini payment.ini
 ExecStop=/bin/kill -9 $MAINPID
